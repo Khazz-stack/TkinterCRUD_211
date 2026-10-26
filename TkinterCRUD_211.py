@@ -78,3 +78,29 @@ class Aplikasi:
         if not 0 <= nilai <= 100:
             raise ValueError(f"Nilai {kunci.capitalize()} harus antara 0 dan 100.")
         return nilai
+
+    def submit(self):
+        nama = self.entry["nama"].get().strip()
+        if not nama:
+            messagebox.showwarning("Peringatan", "Nama siswa harus diisi.")
+            return
+
+        try:
+            biologi = self.baca_nilai("biologi")
+            fisika = self.baca_nilai("fisika")
+            inggris = self.baca_nilai("inggris")
+        except ValueError as err:
+            messagebox.showwarning("Peringatan", str(err))
+            return
+
+        hasil = prediksi_fakultas(biologi, fisika, inggris)
+        simpan_data(nama, biologi, fisika, inggris, hasil)
+
+        self.label_hasil.config(text=f"Prediksi Fakultas: {hasil}")
+        messagebox.showinfo("Berhasil", f"Data {nama} berhasil disimpan.")
+        self.kosongkan_form()
+
+    def kosongkan_form(self):
+        for e in self.entry.values():
+            e.delete(0, tk.END)
+        self.entry["nama"].focus()
