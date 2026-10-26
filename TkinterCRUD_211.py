@@ -18,4 +18,4 @@ def buat_tabel():
                 prediksi_fakultas TEXT    NOT NULL
             )
             """
-        )
+    )
