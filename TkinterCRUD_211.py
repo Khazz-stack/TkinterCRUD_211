@@ -104,3 +104,9 @@ class Aplikasi:
         for e in self.entry.values():
             e.delete(0, tk.END)
         self.entry["nama"].focus()
+
+def main():
+    buat_tabel()
+    root = tk.Tk()
+    Aplikasi(root)
+    root.mainloop()
