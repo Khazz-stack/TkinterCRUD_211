@@ -19,3 +19,13 @@ def buat_tabel():
             )
             """
     )
+
+def simpan_data(nama, biologi, fisika, inggris, prediksi):
+    """Menyimpan satu baris data siswa ke tabel nilai_siswa."""
+    with sqlite3.connect(DB_NAME) as conn:
+        conn.execute(
+            "INSERT INTO nilai_siswa "
+            "(nama_siswa, biologi, fisika, inggris, prediksi_fakultas) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (nama, biologi, fisika, inggris, prediksi),
+        )
