@@ -67,3 +67,14 @@ class Aplikasi:
             e = tk.Entry(form, width=25)
             e.grid(row=baris, column=1, padx=5, pady=5)
             self.entry[kunci] = e
+
+    def baca_nilai(self, kunci):
+        """Mengambil nilai angka 0-100 dari entry, error jika tidak valid."""
+        teks = self.entry[kunci].get().strip().replace(",", ".")
+        try:
+            nilai = float(teks)
+        except ValueError:
+            raise ValueError(f"Nilai {kunci.capitalize()} harus berupa angka.")
+        if not 0 <= nilai <= 100:
+            raise ValueError(f"Nilai {kunci.capitalize()} harus antara 0 dan 100.")
+        return nilai
