@@ -29,3 +29,15 @@ def simpan_data(nama, biologi, fisika, inggris, prediksi):
             "VALUES (?, ?, ?, ?, ?)",
             (nama, biologi, fisika, inggris, prediksi),
         )
+
+def prediksi_fakultas(biologi, fisika, inggris):
+    """Fakultas ditentukan dari nilai yang paling tinggi.
+
+    Jika ada nilai yang sama tinggi, urutan prioritas:
+    Biologi > Fisika > Inggris.
+    """
+    if biologi >= fisika and biologi >= inggris:
+        return "Kedokteran"
+    if fisika >= inggris:
+        return "Teknik"
+    return "Bahasa"
