@@ -49,3 +49,21 @@ class Aplikasi:
         ("Fisika", "fisika"),
         ("Inggris", "inggris"),
     ]
+    def __init__(self, root):
+        self.root = root
+        root.title("Prediksi Fakultas")
+        root.resizable(False, False)
+
+        tk.Label(root, text="Aplikasi Prediksi Fakultas",
+                font=("Arial", 16, "bold")).pack(pady=(15, 5))
+
+        form = tk.Frame(root)
+        form.pack(padx=20, pady=10)
+
+        self.entry = {}
+        for baris, (teks, kunci) in enumerate(self.FIELD):
+            tk.Label(form, text=teks + ":", anchor="e", width=12).grid(
+                row=baris, column=0, padx=5, pady=5)
+            e = tk.Entry(form, width=25)
+            e.grid(row=baris, column=1, padx=5, pady=5)
+            self.entry[kunci] = e
