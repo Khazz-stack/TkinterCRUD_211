@@ -110,3 +110,6 @@ def main():
     root = tk.Tk()
     Aplikasi(root)
     root.mainloop()
+
+if __name__ == "__main__":
+    main()
