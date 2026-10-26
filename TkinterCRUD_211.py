@@ -41,3 +41,11 @@ def prediksi_fakultas(biologi, fisika, inggris):
     if fisika >= inggris:
         return "Teknik"
     return "Bahasa"
+
+class Aplikasi:
+    FIELD = [
+        ("Nama Siswa", "nama"),
+        ("Biologi", "biologi"),
+        ("Fisika", "fisika"),
+        ("Inggris", "inggris"),
+    ]
